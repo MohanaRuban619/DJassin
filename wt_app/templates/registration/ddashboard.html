@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        h1 {text-align: center;}
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+            }
+        h { font-size: 20px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASHBOARD</title>
+</head>
+<body>
+    <h1>WELCOME TO DOCTOR DASHBOARD</h1>
+    <form action="{% url 'selectpage' %} ">
+        {% csrf_token %}
+        <h2><button onclick="" style="width: auto;">Logout</button> </h2></form>
+    {% for aa in a %}
+        <div class="Customers_Person_Photo">
+            <img src="{{aa.img.url}}" alt="" width="100" height = "150">
+        </div><br>
+        <h> NAME :</h> {{aa.first_Name}}{{aa.last_Name}}<br>
+        
+        <p><h>USERNAME :</h> {{aa.username}}</p>
+        <h>Email :</h> {{aa.Email_id}}<br>
+        <h>PASSWORD :</h> {{aa.psw}}<br>
+        <h>ADDRESS :</h><br>{{aa.line_1}}<br>{{aa.city}}-{{aa.pincode}}<br>
+        {{aa.state}}<br>
+        
+        
+    {% endfor %}
+
+    
+
+
+
+</body>
+</html>
